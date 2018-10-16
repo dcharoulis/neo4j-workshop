@@ -27,19 +27,19 @@ Queries on movies dataset
 
 # Sherman wants to find the highest ratings on movies that other users that have rated similarly to the movies that he has rated
 
-// find the movies that user Sherman has rated
-MATCH ....
-// find any other user that has given similar (0 or 1 stars difference) ratings to the movies that Sherman rated
-MATCH
-WHERE  .... // user is not Sherman
-AND abs(rating1 - rating2) < 2 // similar ratings
-WITH .... // pass the other users and the movies they have in common with Sherman
-// find the average rating on the other movies that other users made, then return by descending order the last 25
-MATCH ....
-WHERE .... // movies are the same as Sheramn's
-WITH avg(otherRating.rating) AS avgRating, movie // get average ratings of other users per movie
-RETURN movie
-ORDER BY avgRating desc
+// find the movies that user Sherman has rated  
+MATCH ....  
+// find any other user that has given similar (0 or 1 stars difference) ratings to the movies that Sherman rated  
+MATCH ....  
+WHERE  .... // user is not Sherman  
+AND abs(rating1 - rating2) < 2 // similar ratings  
+WITH .... // pass the other users and the movies they have in common with Sherman  
+// find the average rating on the other movies that other users made, then return by descending order the last 25  
+MATCH ....  
+WHERE .... // movies are the same as Sheramn's  
+WITH avg(otherRating.rating) AS avgRating, movie // get average ratings of other users per movie  
+RETURN movie  
+ORDER BY avgRating desc  
 LIMIT 25
 
 # Find the movies with similar keywords as Elysium
